@@ -1,0 +1,33 @@
+3.16 - FILE STRUCTURE
+> wordcount:
+ - settings.py: user management, templates, db-management, base directory, et cetera.
+ - urls.py: the structure of your website
+ - wsgi.py: come back to that later in course
+> db.sqlite3: database
+> manage.py: do not touch it unless you really know what you're doing
+
+3.17 - URLs
+To create a page:
+ - create views.py if it not yet exists
+ - add 'from . import views' to urls.py
+ - add the page to views.py and to urlpatterns (e.g. path('', views.home),)
+
+3.18 - TEMPLATES
+Continuing, to create a page:
+ - create a folder templates if it not yet exists
+ - add the folder name to settings.py > TEMPLATES > DIRS
+ - create a html-file in this folder
+ - add 'from django.shortcuts import render' to views.py
+
+3.19 FORMS
+If you name a page (e.g. path('count/', views.count, name='counting') in urls.py), you can refer to it in html (e.g. "{% url 'counting' %}")
+
+3.20 COUNTING THE WORDS
+You can pass the GET to a dict (e.g.
+def count(request):
+    return render(request,
+                  'count.html',
+                  {'fulltext': request.GET['fulltext']})
+)
+You can call a dict value on your html page (e.g. {{ fulltext }})
+You can use python code on your page by putting in between {% python code %}

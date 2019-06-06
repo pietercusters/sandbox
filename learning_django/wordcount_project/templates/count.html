@@ -1,0 +1,17 @@
+<h1>Counted {{ count }}</h1>
+
+<a href="{% url 'home' %}"> Start again </a>
+
+<br />
+
+Fulltext = {{ fulltext }}
+
+{% for word, counttotal in worddict %}
+
+<br />
+{{ word }}
+<br />
+{{ counttotal }}
+<br />
+
+{% endfor %}
